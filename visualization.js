@@ -40,26 +40,73 @@ function visualize(data) {
     .attr("fill", "dodgerblue")
     .attr("stroke", "black");
 
-    var background = svg
-      .append("rect")
-      .attr("width", effectiveDimension.width)
-      .attr("height", effectiveDimension.height)
-      .attr("x", margin.left)
-      .attr("y", margin.top)
-      .attr("fill", "grey")
-      .attr("stroke", "blue");
+  var background = svg
+    .append("rect")
+    .attr("width", effectiveDimension.width)
+    .attr("height", effectiveDimension.height)
+    .attr("x", margin.left)
+    .attr("y", margin.top)
+    .attr("fill", "grey")
+    .attr("stroke", "blue");
 
-      const points = [[1, 1], [500, 35], [300, 400], [100, 200], [260, 50]];
-      drawPolygon(svg, points);
+  const points = [[1, 1], [500, 35], [300, 400], [100, 200], [260, 50]];
+  const categories = [
+    ["calories", 160],
+    ["protein", 6],
+    ["sodium", 320],
+    ["fiber", 14],
+    ["sugars", 15]
+  ];
+
+  //   const cerealName = "Clusters";
+  const percentages = [];
+  console.log("Categories: " + categories);
+  let theta = 360 / categories.length;
+  const angles = [];
+  for (let a = 1; a <= 3; a += 1) {
+    // Spacing the polygons horizontally
+    let translation = a * 250;
+
+    // The cereal we are drawing the polygon for
+    const cerealRow = data[14 + a];
+
+    // Radius of the polygon
+    let scale = 250;
+
+    categories.forEach((category, index) => {
+      percentages[index] = cerealRow[category[0]] / category[1];
+      console.log("Percentage of " + category[0] + " is " + percentages[index]);
+    });
+
+    for (let i = 0; i < categories.length; i += 1) {
+      angles[i] = theta * i;
+      let magnitude = scale * percentages[i];
+      points[i] = [
+        magnitude * Math.cos(degreesToRadians(angles[i] + 90)) + translation,
+        magnitude * Math.sin(degreesToRadians(angles[i] + 90)) + 400
+      ];
+    }
+    console.log("Angles: " + angles);
+    console.log("Points: " + points);
+    drawPolygon(svg, points);
+  }
+}
+
+function degreesToRadians(degrees) {
+  return (Math.PI * degrees) / 180.0;
 }
 
 function pointsToString(points) {
-    let pointsString = "";
-    points.forEach((point) => {
-        console.log("Point: ", point);
-        pointsString += point[0] + " " + point[1] + ", ";
-    });
-    return pointsString;
+  let pointsString = "";
+  if (points.length >= 1) {
+    pointsString += points[0][0] + " " + points[0][1];
+  }
+  for (let i = 1; i < points.length; i += 1) {
+    let point = points[i];
+    pointsString += ", " + point[0] + " " + point[1];
+    console.log("Point: ", point);
+  }
+  return pointsString;
 }
 
 function drawPolygon(svg, points) {
