@@ -57,10 +57,10 @@ function visualize(data) {
   const axisPoints = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
   const categories = [
     ["calories", 160],
-    ["protein", 6],
     ["sodium", 320],
     ["fiber", 14],
-    ["sugars", 15]
+    ["sugars", 15],
+    ["fat", 5]
   ];
 
   //   const cerealName = "Clusters";
@@ -69,7 +69,7 @@ function visualize(data) {
   let theta = 360 / categories.length;
   const angles = [];
   const firstGraphX = canvasDimension.width/5;
-  const graphY = canvasDimension.height/3;
+  const graphY = canvasDimension.height/3.5;
   for (let a = 0; a < 3; a += 1) {
     // Spacing the polygons horizontally
     var translation = firstGraphX + a * (canvasDimension.width - 2 * firstGraphX)/2;
@@ -147,7 +147,7 @@ function drawAxis(svg, points, originX, originY) {
 
 function drawBox(svg, x, y){
   var boxWidth = 250;
-  var boxHeight = 300;
+  var boxHeight = 320;
   svg.append("rect")
     .attr("rx", 6)
     .attr("ry", 6)
