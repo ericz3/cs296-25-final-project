@@ -1,21 +1,27 @@
 # cs-296-25-final-project
+
 Final project for CS 296-25 Spring 2019.
 
-The idea is that we compare 5 (or some other number) at a time, that we choose them.
+## About the project
 
-For each cereal, characteristics of the polygon:
+The idea is that we compare 3 cereals at a time, that users can choose via a multi-select dropdown.
+
+For each cereal, we compare the following characteristics using a weighted polygon:
 
 - Calories
 - Sugars
 - Sodium
 - Fiber
-<!-- - Protein -->
+- Carbohydrates
 
-360/n = For n = 5, 72 degrees
+### Project Members
 
-Percentage for each characteristic
-This percentage gives us the distance from the origin
+Eric Zhang, Pradyumna Shome, and Sumuk Rao
 
-r = percentage
-r cos x
-r sin x
+## Dataset
+
+[80 Cereals, from Kaggle](https://www.kaggle.com/crawford/80-cereals)
+
+## Screenshots
+
+![](screenshots/1.png)
