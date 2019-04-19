@@ -51,7 +51,7 @@ function visualize(data) {
     .attr("x", margin.left)
     .attr("y", margin.top)
     .attr("fill", "lightgrey")
-    .attr("stroke", "LightSkyBlue");
+    .attr("stroke", "DarkGrey");
 
   const points = [[1, 1], [500, 35], [300, 400], [100, 200], [260, 50]];
   const axisPoints = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
@@ -155,5 +155,5 @@ function drawBox(svg, x, y){
     .attr("y", y)
     .attr("width", boxWidth)
     .attr("height", boxHeight)
-    .style("fill", "CadetBlue");
+    .style("fill", "LightSteelBlue");
 }
