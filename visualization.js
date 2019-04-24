@@ -110,7 +110,7 @@ function visualize(data, cereal1, cereal2, cereal3) {
     drawPolygon(svg, points);
     drawAxis(svg, axisPoints, translation, graphY);
     creatBrandOptions();
-    drawBox(svg, translation, graphY + scale * 1.25);
+    drawBox(svg, translation, cereal1, cereal2, cereal3, graphY + scale * 1.25);
   }
 }
 
@@ -154,7 +154,7 @@ function drawAxis(svg, points, originX, originY) {
   }
 }
 
-function drawBox(svg, x, y){
+function drawBox(svg, cereals, x, y){
   var boxWidth = 250;
   var boxHeight = 320;
   svg.append("rect")
@@ -166,6 +166,14 @@ function drawBox(svg, x, y){
     .attr("height", boxHeight)
     .text("Testing", 5, 100)
     .style("fill", "LightSteelBlue");
+
+  // Compute array of file paths from the base directory
+  const imageBasePath = "downloads/";
+  const paths = ["", "", ""];
+  const countCereals = cereals.length;
+  for (let i = 0; i < countCereals; i++) {
+      paths[i] = imageBasePath + ce
+  }
 }
 
 function creatBrandOptions(){
