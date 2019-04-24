@@ -4,9 +4,9 @@ $(function() {
   d3.csv(datasetPath).then(function(data) {
     // Write the data to the console for debugging:
     console.log(data, cereal1, cereal2, cereal3);
-    var cereal1 = 1;
-    var cereal2 = 2;
-    var cereal3 = 3;
+    var cereal1 = 0;
+    var cereal2 = 0;
+    var cereal3 = 0;
     // Call our visualize function:
     visualize(data, cereal1, cereal2, cereal3);
   });
@@ -68,6 +68,7 @@ function visualize(data, cereal1, cereal2, cereal3) {
   ];
 
   //   const cerealName = "Clusters";
+  var listOfCereals = [cereal1, cereal2, cereal3];
   const percentages = [];
   console.log("Categories: " + categories);
   let theta = 360 / categories.length;
@@ -79,7 +80,7 @@ function visualize(data, cereal1, cereal2, cereal3) {
     var translation = firstGraphX + a * (canvasDimension.width - 2 * firstGraphX)/2;
 
     // The cereal we are drawing the polygon for
-    const cerealRow = data[20 + a];
+    const cerealRow = data[listOfCereals[a]];
 
     // Radius of the polygon
     let scale = 125;
@@ -185,8 +186,33 @@ function creatBrandOptions(){
 }
 
 function myFunction(){
-  var cereal1 = 1;
-  var cereal2 = 2;
-  var cereal3 = 3;
-  visualize(data, cereal1, cereal2, cereal3);
+  var cereal0 = 0;
+  var cereal1 = 0;
+  var cereal2 = 0;
+
+  var cerealList = ["100% Bran", "100% Natural Bran", "All-Bran", "All-Bran with Extra Fiber", "Almond Delight", "Apple Cinnamon Cheerios", "Apple Jacks", "Basic 4", "Bran Chex", "Bran Flakes", "Cap'n'Crunch", "Cheerios", "Cinnamon Toast Crunch", "Clusters", "Cocoa Puffs", "Corn Chex", "Corn Flakes", "Corn Pops", "Count Chocula", "Cracklin' Oat Bran", "Cream of Wheat (Quick)", "Crispix", "Crispy Wheat & Raisins", "Double Chex", "Froot Loops", "Frosted Flakes", "Frosted Mini-Wheats", "Fruit & Fibre Dates; Walnuts; and Oats", "Fruitful Bran", "Fruity Pebbles", "Golden Crisp", "Golden Grahams", "Grape Nuts Flakes", "Grape-Nuts", "Great Grains Pecan", "Honey Graham Ohs", "Honey Nut Cheerios", "Honey-comb", "Just Right Crunchy  Nuggets", "Just Right Fruit & Nut", "Kix", "Life", "Lucky Charms", "Maypo", "Muesli Raisins; Dates; & Almonds", "Muesli Raisins; Peaches; & Pecans", "Mueslix Crispy Blend", "Multi-Grain Cheerios", "Nut&Honey Crunch", "Nutri-Grain Almond-Raisin", "Nutri-grain Wheat", "Oatmeal Raisin Crisp", "Post Nat. Raisin Bran", "Product 19", "Puffed Rice", "Puffed Wheat", "Quaker Oat Squares", "Quaker Oatmeal", "Raisin Bran", "Raisin Nut Bran", "Raisin Squares", "Rice Chex", "Rice Krispies", "Shredded Wheat", "Shredded Wheat 'n'Bran", "Shredded Wheat spoon size", "Smacks", "Special K", "Strawberry Fruit Wheats", "Total Corn Flakes", "Total Raisin Bran", "Total Whole Grain", "Triples", "Trix", "Wheat Chex", "Wheaties", "Wheaties Honey Gold"];
+
+  var cereal0name = document.getElementById("brand-select0").value;
+  var cereal1name = document.getElementById("brand-select1").value;
+  var cereal2name = document.getElementById("brand-select2").value;
+
+  for (let i = 0; i < cerealList.length; i += 1) {
+    if(cereal0name == cerealList[i]){
+      cereal0 = i;
+    }
+    if(cereal1name == cerealList[i]){
+      cereal1 = i;
+    }
+    if(cereal2name == cerealList[i]){
+      cereal2 = i;
+    }
+  }
+
+  const datasetPath = "cereal.csv";
+  d3.csv(datasetPath).then(function(data) {
+    // Write the data to the console for debugging:
+    console.log(data);
+    // Call our visualize function:
+    visualize(data, cereal0, cereal1, cereal2);
+  });
 }
