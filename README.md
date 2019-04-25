@@ -25,3 +25,5 @@ Eric Zhang, Pradyumna Shome, and Sumuk Rao
 ## Screenshots
 
 ![](screenshots/1.png)
+
+![](screenshots/2.png)
