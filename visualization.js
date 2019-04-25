@@ -14,7 +14,7 @@ $(function() {
 
 function visualize(data, cereal1, cereal2, cereal3) {
   // Boilerplate:
-  const canvasDimension = { width: 1024, height: 800 };
+  const canvasDimension = { width: 1024, height: 625 };
   const margin = {
     top: 50,
     right: 50,
@@ -108,7 +108,6 @@ function visualize(data, cereal1, cereal2, cereal3) {
     drawPolygon(svg, points);
     drawAxis(svg, axisPoints, translation, graphY);
     creatBrandOptions();
-    drawBox(svg, translation, graphY + scale * 1.25);
   }
 }
 
@@ -141,7 +140,7 @@ function drawPolygon(svg, points) {
 }
 
 function drawAxis(svg, points, originX, originY) {
-  const axisColors = ["red", "orange", "yellow", "green", "blue"];
+  const axisColors = ["red", "orange", "purple", "green", "blue"];
   for(let i = 0; i < points.length; i+=1){
     svg.append("line")
       .style("stroke", String(axisColors[i]))
@@ -150,20 +149,6 @@ function drawAxis(svg, points, originX, originY) {
       .attr("x2", points[i][0])
       .attr("y2", points[i][1]);
   }
-}
-
-function drawBox(svg, x, y){
-  var boxWidth = 250;
-  var boxHeight = 320;
-  svg.append("rect")
-    .attr("rx", 6)
-    .attr("ry", 6)
-    .attr("x", x-boxWidth/2)
-    .attr("y", y)
-    .attr("width", boxWidth)
-    .attr("height", boxHeight)
-    .text("Testing", 5, 100)
-    .style("fill", "LightSteelBlue");
 }
 
 function creatBrandOptions(){

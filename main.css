@@ -7,3 +7,10 @@
 #visualization {
     text-align: center;
 }
+
+.legend {
+    background-color: lightgrey;
+    text-align: center;
+    display: inline;
+    font-weight:bold;
+}
