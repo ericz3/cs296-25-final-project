@@ -222,7 +222,8 @@ function drawAxis(svg, points, originX, originY) {
       .attr("x1", originX)
       .attr("y1", originY)
       .attr("x2", points[i][0])
-      .attr("y2", points[i][1]);
+      .attr("y2", points[i][1])
+      .attr("stroke-width", 5);
   }
 }
 
