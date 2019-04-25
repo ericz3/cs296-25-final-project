@@ -26,8 +26,6 @@ function visualize(data, cereal1, cereal2, cereal3) {
     height: canvasDimension.height - margin.top - margin.bottom
   };
 
-  $('#chart').empty();
-
   var svg = d3
     .select("#visualization")
     .append("svg")
@@ -186,6 +184,7 @@ function creatBrandOptions(){
 }
 
 function myFunction(){
+  $('#visualization').empty();
   var cereal0 = 0;
   var cereal1 = 0;
   var cereal2 = 0;
