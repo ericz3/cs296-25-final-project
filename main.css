@@ -14,3 +14,22 @@
     display: inline;
     font-weight:bold;
 }
+
+img {
+    height: 10vh;
+    width: 10vh;
+    display: inline-block;
+    margin-left: 10vw;
+    margin-right: 8vw;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+select {
+    margin-left: 3vw;
+}
+
+selector-container {
+    text-align: center;
+    width: 100vw;
+}

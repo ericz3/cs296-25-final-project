@@ -43,13 +43,16 @@
         </h5>
       </section>
       <section id="input">
-        <div style="text-align:center">
-        <select id="brand-select0" name="brand" onchange="myFunction()">
-        </select>
-        <select id="brand-select1" name="brand" onchange="myFunction()">
-        </select>
-        <select id="brand-select2" name="brand" onchange="myFunction()">
-        </select>
+        <div class="selector-container">
+          <img id="brand-image0" name="image"/>
+          <img id="brand-image1" name="image"/>
+          <img id="brand-image2" name="image"/>
+        </div>
+
+        <div class="selector-container">
+          <select id="brand-select0" name="brand" onchange="reloadVisualization()"></select>
+          <select id="brand-select1" name="brand" onchange="reloadVisualization()"></select>
+          <select id="brand-select2" name="brand" onchange="reloadVisualization()"/></select>
         </div>
       </section>
       <section id="visualization">
